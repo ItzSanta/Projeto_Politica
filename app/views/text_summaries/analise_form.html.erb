@@ -1,8 +1,6 @@
 <h1>Resumo de Texto com IA</h1>
 
-<%= form_with url: text_summaries_analise_path, method: :post, data: { turbo: false }, local: true do %>
-  
-
+<%= form_with url: text_summaries_analise_path, method: :post, data: { turbo: false }, local: true, html: { id: "form-ia" } do %>
   <div>
     <%= label_tag :query, "Digite ou cole seu texto abaixo:" %><br>
     <%= text_area_tag :query, @original_text, rows: 10, cols: 80, placeholder: "Cole aqui o texto que você quer resumir..." %>
@@ -12,6 +10,11 @@
     <%= submit_tag "Analisar", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<!-- Mensagem de carregamento -->
+<div id="loading-msg" style="display: none; margin-top: 20px; color: #333;">
+  ⏳ Resumindo... Aguarde um momento...
+</div>
 
 <% if @summary.present? %>
   <hr>
@@ -25,3 +28,15 @@
     <strong>Erro:</strong> <%= @error %>
   </div>
 <% end %>
+
+<!-- Script pra exibir a ampulheta -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("form-ia");
+    const loading = document.getElementById("loading-msg");
+
+    form.addEventListener("submit", function () {
+      loading.style.display = "block";
+    });
+  });
+</script>
