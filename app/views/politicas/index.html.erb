@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Politicas" %>
+
+<h1>Todas as Politicas</h1>
+
+<div id="politicas">
+  <% @politicas.each do |politica| %>
+    <%= render politica %>
+    <p>
+      <%= link_to "Show this politica", politica %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New politica", new_politica_path %>
+<%= link_to "Voltar", root_path %>
