@@ -1,32 +1,29 @@
-<h1>Resumo de Texto com IA</h1>
+require 'http'
+require 'json'
 
-<%= form_with url: text_summaries_analise_path, method: :post, local: true do %>
-  <div>
-    <%= label_tag :query, "Digite ou cole seu texto abaixo:" %><br>
-    <%= text_area_tag :query, @original_text, rows: 10, cols: 80, placeholder: "Cole aqui o texto que você quer resumir..." %>
-  </div>
+class MistralSummarizerService
+  MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions"
 
-  <div style="margin-top: 20px;">
-    <%= submit_tag "Analisar", class: "btn btn-primary" %>
-  </div>
-<% end %>
+  def initialize(api_key = ENV['MISTRAL_API_KEY'])
+    @api_key = api_key
+  end
 
-<!-- 🔍 Indicador de debug visual -->
-<p><strong>[DEBUG]</strong> Summary present? <%= @summary.present? %> | Original present? <%= @original_text.present? %></p>
+  def generate_chat_response(query)
+    response = HTTP.auth("Bearer #{@api_key}")
+                   .post(MISTRAL_API_URL, json: {
+                     model: "mistral-large-latest",
+                     messages: [
+                       { role: 'user', content: query }
+                     ]
+                   })
 
-<% if @summary.present? %>
-  <hr>
-  <h2>Resumo Gerado:</h2>
-  <div style="white-space: pre-wrap; background: white; padding: 10px; border-radius: 5px; border: 1px solid #ccc; color: black;">
-    <%= simple_format(@summary) %>
-  </div>
+    data = JSON.parse(response.body.to_s)
 
-  <h3 style="margin-top: 30px;">📝 Texto Original:</h3>
-  <div style="white-space: pre-wrap; background: #f0f0f0; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-    <%= simple_format(@original_text) %>
-  </div>
-<% elsif @error.present? %>
-  <div style="color: red; margin-top: 20px;">
-    <strong>Erro:</strong> <%= @error %>
-  </div>
-<% end %>
+    if response.status.success?
+      data.dig("choices", 0, "message", "content")
+    else
+      Rails.logger.error("❌ Erro na API Mistral: #{response.status} - #{response.body.to_s}")
+      nil
+    end
+  end
+end
