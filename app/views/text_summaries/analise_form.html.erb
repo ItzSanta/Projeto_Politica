@@ -1,6 +1,8 @@
 <h1>Resumo de Texto com IA</h1>
 
-<%= form_with url: text_summaries_analise_path, method: :post, local: true do %>
+<%= form_with url: text_summaries_analise_path, method: :post, data: { turbo: false }, local: true do %>
+  
+
   <div>
     <%= label_tag :query, "Digite ou cole seu texto abaixo:" %><br>
     <%= text_area_tag :query, @original_text, rows: 10, cols: 80, placeholder: "Cole aqui o texto que você quer resumir..." %>
@@ -16,11 +18,6 @@
   <h2>Resumo Gerado:</h2>
   <div style="white-space: pre-wrap; background: #f9f9f9; padding: 10px; border-radius: 5px; color: black;">
     <%= simple_format(@summary) %>
-  </div>
-
-  <h3 style="margin-top: 30px;">📝 Texto Original:</h3>
-  <div style="white-space: pre-wrap; background: #f0f0f0; padding: 10px; border-radius: 5px;">
-    <%= simple_format(@original_text) %>
   </div>
 
 <% elsif @error.present? %>

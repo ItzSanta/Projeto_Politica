@@ -24,14 +24,17 @@ class TextSummariesController < ApplicationController
 
     if summary
       Rails.logger.info("✅ Resumo recebido com sucesso no controller")
+      Rails.logger.info("📄 Resumo gerado pela IA:\n#{summary}")
       @summary = summary
+      @original_text = query
       @error = nil
     else
       Rails.logger.warn("⚠️ Falha ao gerar o resumo no serviço")
-      @error = "Erro ao gerar o resumo."
       @summary = nil
+      @original_text = query
+      @error = "Erro ao gerar o resumo."
     end
-
+    
     render :analise_form
   end
 end
