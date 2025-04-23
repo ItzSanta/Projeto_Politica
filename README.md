@@ -23,17 +23,18 @@ Este projeto é uma aplicação Ruby on Rails que permite criar, visualizar, edi
 4. Instalação e Configuração:
 
 
-   -Instale as dependências: bundle install
-   -Configure o banco de dados: rails db:migrate
+      -Instale as dependências: bundle install
+
+      -Configure o banco de dados: rails db:migrate
 
 
-5. Crie o arquivo .env a partir do .env.example e adicione a sua API_KEY da Mistral: MISTRAL_API_KEY=SuaAPIKeyAqui
+6. Crie o arquivo .env a partir do .env.example e adicione a sua API_KEY da Mistral: MISTRAL_API_KEY=SuaAPIKeyAqui
 
-6. Para rodar a aplicação:
+7. Para rodar a aplicação:
    ```bash
    rails s
 
-7. Rotas:
+8. Rotas:
 
          Home: http://127.0.0.1:3000/ - Página inicial do projeto.
    
