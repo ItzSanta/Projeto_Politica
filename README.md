@@ -32,17 +32,14 @@ Este projeto é uma aplicação Ruby on Rails que permite criar, visualizar, edi
    rails s
 
 7. Rotas:
-  Home: http://127.0.0.1:3000/ - Página inicial do projeto.
-
+        Home: http://127.0.0.1:3000/ - Página inicial do projeto.
         Listar Políticas: /politicas - Exibe todas as políticas criadas.
-
         Criar Nova Política: /politicas/new - Formulário para criar uma nova política.
-
         Editar Política: /politicas/1/edit - Onde 1 é o ID da política que você deseja editar.
-
         Análise de Resumo: /text_summaries/analise - Gera um resumo utilizando a API da Mistral.
+        
 
-8. Contato:
+9. Contato:
    Para dúvidas ou mais informações, entre em contato:
      Email: vsantarelli.vms@gmail.com
 
