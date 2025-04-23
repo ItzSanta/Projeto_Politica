@@ -1,0 +1,23 @@
+
+<%= form_with url: text_summaries_analise_path, method: :post, local: true do %>
+  <div>
+    <%= label_tag :query, "Digite ou cole seu texto abaixo:" %><br>
+    <%= text_area_tag :query, nil, rows: 10, cols: 80, placeholder: "Cole aqui o texto que você quer resumir..." %>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <%= submit_tag "Analisar", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<% if @summary.present? %>
+  <hr>
+  <h2>Resumo Gerado:</h2>
+  <div style="white-space: pre-wrap; background: #f9f9f9; padding: 10px; border-radius: 5px;">
+    <%= @summary %>
+  </div>
+<% elsif @error.present? %>
+  <div style="color: red; margin-top: 20px;">
+    <strong>Erro:</strong> <%= @error %>
+  </div>
+<% end %>

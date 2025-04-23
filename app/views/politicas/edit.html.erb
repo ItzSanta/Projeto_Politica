@@ -1,0 +1,12 @@
+<% content_for :title, "Editing politica" %>
+
+<h1>Editing politica</h1>
+
+<%= render "form", politica: @politica %>
+
+<br>
+
+<div>
+  <%= link_to "Mostrar essa politica", @politica %> |
+  <%= link_to "Voltar para politicas", politicas_path %>
+</div>

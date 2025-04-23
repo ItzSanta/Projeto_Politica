@@ -1,0 +1,113 @@
+/* application.css */
+
+/* Reset básico para garantir que o estilo será mais consistente entre os navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Definir a fonte padrão para o projeto */
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* Estilo do título principal */
+  h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  /* Links */
+  a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilo do formulário */
+  form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    resize: vertical;
+  }
+  
+  button, .btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover, .btn:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Estilo de erro */
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Estilo da área de resumo */
+  #summary {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    margin-top: 20px;
+  }
+  
+  /* Mensagem de loading */
+  #loading-msg {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Container para links */
+  .link-container {
+    margin-top: 20px;
+  }
+  
+  /* Botões e links */
+  .link-container a {
+    font-size: 1.1em;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .link-container a:hover {
+    background-color: #2980b9;
+  }
+  
