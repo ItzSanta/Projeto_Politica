@@ -66,4 +66,4 @@ gem "http", "~> 5.2"
 
 gem "dotenv-rails", "~> 3.1"
 
-gem "json", "~> 2.10"
+gem "json", "~> 2.12"
